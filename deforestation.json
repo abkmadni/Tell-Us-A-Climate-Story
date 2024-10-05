@@ -1,0 +1,222 @@
+[
+    {
+        "storyTitle": "Deforestation",
+        "question": "What should the Astral Scavengers do to combat deforestation?",
+        "options": [
+            {
+                "answer": "Implement a reforestation program",
+                "score": 10
+            },
+            {
+                "answer": "Support logging for economic gain",
+                "score": -10
+            },
+            {
+                "answer": "Introduce eco-tourism",
+                "score": 5
+            },
+            {
+                "answer": "Do nothing",
+                "score": -15
+            }
+        ]
+    },
+    {
+        "storyTitle": "Deforestation",
+        "question": "How can the team help local wildlife?",
+        "options": [
+            {
+                "answer": "Create wildlife corridors",
+                "score": 8
+            },
+            {
+                "answer": "Capture and relocate animals",
+                "score": -5
+            },
+            {
+                "answer": "Build fences around deforested areas",
+                "score": -10
+            },
+            {
+                "answer": "Leave the wildlife to adapt on their own",
+                "score": -15
+            }
+        ]
+    },
+    {
+        "storyTitle": "Deforestation",
+        "question": "What is the best way to educate locals on sustainable practices?",
+        "options": [
+            {
+                "answer": "Conduct workshops and training sessions",
+                "score": 10
+            },
+            {
+                "answer": "Distribute pamphlets",
+                "score": 5
+            },
+            {
+                "answer": "Use social media campaigns",
+                "score": 7
+            },
+            {
+                "answer": "Ignore education efforts",
+                "score": -10
+            }
+        ]
+    },
+    {
+        "storyTitle": "Deforestation",
+        "question": "How should the team address illegal logging?",
+        "options": [
+            {
+                "answer": "Increase patrols and enforcement",
+                "score": 10
+            },
+            {
+                "answer": "Offer incentives for legal logging",
+                "score": 5
+            },
+            {
+                "answer": "Ignore the issue",
+                "score": -15
+            },
+            {
+                "answer": "Relocate illegal loggers",
+                "score": -10
+            }
+        ]
+    },
+    {
+        "storyTitle": "Deforestation",
+        "question": "What alternative livelihoods can be provided to loggers?",
+        "options": [
+            {
+                "answer": "Promote agroforestry",
+                "score": 10
+            },
+            {
+                "answer": "Offer jobs in tourism",
+                "score": 8
+            },
+            {
+                "answer": "Provide financial aid",
+                "score": 5
+            },
+            {
+                "answer": "Do nothing",
+                "score": -15
+            }
+        ]
+    },
+    {
+        "storyTitle": "Deforestation",
+        "question": "How can the team involve the community in conservation efforts?",
+        "options": [
+            {
+                "answer": "Form community forest management groups",
+                "score": 10
+            },
+            {
+                "answer": "Hire external experts",
+                "score": -5
+            },
+            {
+                "answer": "Conduct community meetings",
+                "score": 8
+            },
+            {
+                "answer": "Ignore community involvement",
+                "score": -15
+            }
+        ]
+    },
+    {
+        "storyTitle": "Deforestation",
+        "question": "What should be done with the deforested land?",
+        "options": [
+            {
+                "answer": "Replant native trees",
+                "score": 10
+            },
+            {
+                "answer": "Convert it to farmland",
+                "score": -10
+            },
+            {
+                "answer": "Build infrastructure",
+                "score": -15
+            },
+            {
+                "answer": "Leave it barren",
+                "score": -10
+            }
+        ]
+    },
+    {
+        "storyTitle": "Deforestation",
+        "question": "How can the team monitor deforestation activities?",
+        "options": [
+            {
+                "answer": "Use satellite imagery",
+                "score": 10
+            },
+            {
+                "answer": "Rely on local reports",
+                "score": 5
+            },
+            {
+                "answer": "Conduct aerial surveys",
+                "score": 7
+            },
+            {
+                "answer": "Ignore monitoring",
+                "score": -15
+            }
+        ]
+    },
+    {
+        "storyTitle": "Deforestation",
+        "question": "What is the best way to fund reforestation efforts?",
+        "options": [
+            {
+                "answer": "Seek international grants",
+                "score": 10
+            },
+            {
+                "answer": "Use local government funds",
+                "score": 5
+            },
+            {
+                "answer": "Crowdfund the project",
+                "score": 8
+            },
+            {
+                "answer": "Ignore funding",
+                "score": -15
+            }
+        ]
+    },
+    {
+        "storyTitle": "Deforestation",
+        "question": "How can the team ensure the sustainability of their efforts?",
+        "options": [
+            {
+                "answer": "Develop long-term plans",
+                "score": 10
+            },
+            {
+                "answer": "Focus on short-term gains",
+                "score": -10
+            },
+            {
+                "answer": "Partner with NGOs",
+                "score": 8
+            },
+            {
+                "answer": "Ignore sustainability",
+                "score": -15
+            }
+        ]
+    }
+]

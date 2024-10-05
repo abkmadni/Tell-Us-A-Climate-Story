@@ -1,0 +1,223 @@
+[
+    {
+        "storyTitle": "Ocean Pollution",
+        "question": "How should the team address ocean pollution?",
+        "options": [
+            {
+                "answer": "Organize a large-scale cleanup",
+                "score": 10
+            },
+            {
+                "answer": "Ban single-use plastics",
+                "score": 8
+            },
+            {
+                "answer": "Develop biodegradable alternatives",
+                "score": 7
+            },
+            {
+                "answer": "Ignore the problem",
+                "score": -15
+            }
+        ]
+    },
+    {
+        "storyTitle": "Ocean Pollution",
+        "question": "What is the best way to educate the public about ocean pollution?",
+        "options": [
+            {
+                "answer": "Launch awareness campaigns",
+                "score": 10
+            },
+            {
+                "answer": "Distribute flyers",
+                "score": 5
+            },
+            {
+                "answer": "Use social media",
+                "score": 7
+            },
+            {
+                "answer": "Ignore education efforts",
+                "score": -10
+            }
+        ]
+    },
+    {
+        "storyTitle": "Ocean Pollution",
+        "storyTitle": "Ocean Pollution",
+        "question": "How can the team reduce plastic waste?",
+        "options": [
+            {
+                "answer": "Promote recycling programs",
+                "score": 10
+            },
+            {
+                "answer": "Encourage the use of reusable items",
+                "score": 8
+            },
+            {
+                "answer": "Implement plastic bag bans",
+                "score": 7
+            },
+            {
+                "answer": "Do nothing",
+                "score": -15
+            }
+        ]
+    },
+    {
+        "storyTitle": "Ocean Pollution",
+        "question": "What should be done with collected plastic waste?",
+        "options": [
+            {
+                "answer": "Recycle it",
+                "score": 10
+            },
+            {
+                "answer": "Incinerate it",
+                "score": -10
+            },
+            {
+                "answer": "Bury it in landfills",
+                "score": -15
+            },
+            {
+                "answer": "Dump it back into the ocean",
+                "score": -20
+            }
+        ]
+    },
+    {
+        "storyTitle": "Ocean Pollution",
+        "question": "How can the team involve local communities in cleanup efforts?",
+        "options": [
+            {
+                "answer": "Organize community cleanups",
+                "score": 10
+            },
+            {
+                "answer": "Hire external contractors",
+                "score": -5
+            },
+            {
+                "answer": "Conduct educational workshops",
+                "score": 8
+            },
+            {
+                "answer": "Ignore community involvement",
+                "score": -15
+            }
+        ]
+    },
+    {
+        "storyTitle": "Ocean Pollution",
+        "question": "What alternative materials can be promoted to reduce plastic use?",
+        "options": [
+            {
+                "answer": "Biodegradable plastics",
+                "score": 10
+            },
+            {
+                "answer": "Glass and metal containers",
+                "score": 8
+            },
+            {
+                "answer": "Paper products",
+                "score": 7
+            },
+            {
+                "answer": "Continue using traditional plastics",
+                "score": -15
+            }
+        ]
+    },
+    {
+        "storyTitle": "Ocean Pollution",
+        "question": "How can the team monitor ocean pollution levels?",
+        "options": [
+            {
+                "answer": "Use drones and satellites",
+                "score": 10
+            },
+            {
+                "answer": "Rely on local reports",
+                "score": 5
+            },
+            {
+                "answer": "Conduct regular water testing",
+                "score": 8
+            },
+            {
+                "answer": "Ignore monitoring",
+                "score": -15
+            }
+        ]
+    },
+    {
+        "storyTitle": "Ocean Pollution",
+        "question": "What policies can be implemented to reduce ocean pollution?",
+        "options": [
+            {
+                "answer": "Enforce strict waste disposal laws",
+                "score": 10
+            },
+            {
+                "answer": "Provide incentives for clean practices",
+                "score": 8
+            },
+            {
+                "answer": "Implement fines for polluters",
+                "score": 7
+            },
+            {
+                "answer": "Ignore policy changes",
+                "score": -15
+            }
+        ]
+    },
+    {
+        "storyTitle": "Ocean Pollution",
+        "question": "How can the team support marine life affected by pollution?",
+        "options": [
+            {
+                "answer": "Create marine protected areas",
+                "score": 10
+            },
+            {
+                "answer": "Relocate affected species",
+                "score": -5
+            },
+            {
+                "answer": "Provide artificial reefs",
+                "score": 8
+            },
+            {
+                "answer": "Do nothing",
+                "score": -15
+            }
+        ]
+    },
+    {
+        "storyTitle": "Ocean Pollution",
+        "question": "What is the best way to fund ocean cleanup efforts?",
+        "options": [
+            {
+                "answer": "Seek international grants",
+                "score": 10
+            },
+            {
+                "answer": "Use local government funds",
+                "score": 5
+            },
+            {
+                "answer": "Crowdfund the project",
+                "score": 8
+            },
+            {
+                "answer": "Ignore funding",
+                "score": -15
+            }
+        ]
+    }
+]

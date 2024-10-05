@@ -1,0 +1,44 @@
+[
+    {
+        "question": "What is the capital of France?",
+        "options": [
+            {
+                "answer": "Berlin",
+                "score": 0
+            },
+            {
+                "answer": "Madrid",
+                "score": 0
+            },
+            {
+                "answer": "Paris",
+                "score": 10
+            },
+            {
+                "answer": "Rome",
+                "score": 0
+            }
+        ]
+    },
+    {
+        "question": "Which planet is known as the Red Planet?",
+        "options": [
+            {
+                "answer": "Earth",
+                "score": 0
+            },
+            {
+                "answer": "Mars",
+                "score": 10
+            },
+            {
+                "answer": "Jupiter",
+                "score": 0
+            },
+            {
+                "answer": "Saturn",
+                "score": 0
+            }
+        ]
+    }
+]

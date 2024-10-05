@@ -1,0 +1,53 @@
+<html>
+
+<head>
+    <title>Astral Scavengers: Guardians of Earth</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: skyblue;
+            background-color: black;
+            background-image: url('background.jpg');
+            background-size: cover;
+        }
+
+        h1 {
+            color: white;
+            font-size: 40px;
+        }
+
+        img {
+            width: 300px;
+            height: 300px;
+            margin-top: 100px;
+            border-radius: 50%;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 20px;
+            background-color: skyblue;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <br>
+    <h1>Choose a Story</h1>
+    <button onclick="startGame('carbon')">Carbon Footprints</button>
+    <button onclick="startGame('ocean')">Ocean Pollution</button>
+    <button onclick="startGame('deforestation')">Deforestation</button>
+
+    <script>
+        function startGame(story) {
+            // Redirect to the next page
+            window.location.href = "questionnare.html?story=" + story;
+        }
+    </script>
+
+</html>
