@@ -8,8 +8,9 @@
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             color: skyblue;
             background-color: black;
-            background-image: url('background.jpg');
+            background-image: url('earthmoon.jpg');
             background-size: cover;
+            margin: 10em auto;
         }
 
         h1 {
@@ -39,13 +40,21 @@
 <body>
     <br>
     <h1>Choose a Story</h1>
+    <div
+        style="padding: 20px; background-color: black; margin: auto; width: 50%; max-width: 600px; text-align: justify; color: white;">
+        <p>As the Earth gasps for breath, her skies darken, oceans rise, and forests crumble. Yet, from the distant
+            reaches of the cosmos, a group of scavengers arrives, not for spoils of war, but for a last chance at
+            salvation. You are one of the Astral Scavengers, a team of intergalactic explorers sent to a broken Earth on
+            a mission not to conquer, but to heal. The fate of the planet lies in your hands. Every choice you make will
+            ripple through the ecosystem—either pushing Earth further toward collapse or drawing it back from the brink.
+            Will you restore balance, or will humanity's final chapter be one of irreversible destruction?</p>
+    </div>
     <button onclick="startGame('carbon')">Carbon Footprints</button>
     <button onclick="startGame('ocean')">Ocean Pollution</button>
     <button onclick="startGame('deforestation')">Deforestation</button>
 
     <script>
         function startGame(story) {
-            // Redirect to the next page
             window.location.href = "questionnare.html?story=" + story;
         }
     </script>

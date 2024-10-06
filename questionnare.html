@@ -4,22 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Page</title>
+    <title></title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: black;
             color: white;
             text-align: center;
+            background-image: url('earthmoon.jpg');
+            background-size: cover;
         }
 
         #game-container {
             display: flex;
             justify-content: space-around;
-            align-items: flex-start;
-            width: 90%;
+            align-items: center;
+            width: 70%;
             margin: 20px auto;
-            background: black;
+            background: rgba(0, 0, 0, 0.625);
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -27,24 +29,26 @@
 
         #game-content {
             width: 70%;
+            display: block;
+            text-align: center;
         }
 
         button {
             display: block;
-            width: 100%;
+            width: 50%;
             padding: 10px;
-            margin: 10px 0;
+            margin: 10px auto;
             font-size: 16px;
             border: none;
             border-radius: 5px;
-            background-color: #28a745;
-            color: white;
+            background-color: skyblue;
+            color: black;
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
 
         button:hover {
-            background-color: #218838;
+            background-color: #04416f;
         }
 
         #result {
@@ -84,7 +88,7 @@
             </div>
             <div id="options"></div>
             <div id="result" style="display:none;"></div>
-            <input type="range" id="earth-slider" min="0" max="100" value="0" disabled>
+            <input type="range" id="earth-slider" min="0" max="100" value="50" disabled>
             <p id="condition-text">Stable</p>
 
         </div>

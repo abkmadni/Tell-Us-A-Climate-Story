@@ -7,40 +7,219 @@
         body {
             text-align: center;
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            color: skyblue;
-            background-color: black;
+            color: rgb(43, 7, 59);
+            background-color: rgb(56, 4, 73);
+            background-image: url('earthmoon.jpg');
+            background-size: cover;
         }
 
-        img {
+        .logo {
             width: 300px;
             height: 300px;
             margin-top: 100px;
             border-radius: 50%;
+
         }
 
         button {
             margin-top: 20px;
             padding: 10px 20px;
             font-size: 20px;
-            background-color: skyblue;
+            background-color: white;
             border: none;
             border-radius: 50px;
             cursor: pointer;
         }
+
+        #map {
+            height: 600px;
+            /* Adjust height as needed */
+        }
+
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            /* Could be more or less, depending on screen size */
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
     </style>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </head>
 
 <body>
-    <img src="logo.jpeg" alt="Game Logo">
+    <img class="logo" src="logo.jpeg" alt="Game Logo">
     <h1>Astral Scavengers: Guardians of Earth</h1>
     <br>
     <button onclick="startGame()">Start</button>
+    <button id="viewMapButton">View Map</button>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="controls">
+                <label for="emissionType">Select Emission Type:</label>
+                <select id="emissionType">
+                    <option value="co2">CO₂ Emissions</option>
+                    <option value="ch4">CH₄ Emissions</option>
+                </select>
+            </div>
+            <div id="map"></div>
+        </div>
+    </div>
 
     <script>
         function startGame() {
-            // Redirect to the next page
             window.location.href = "next_page.html";
         }
+
+        var modal = document.getElementById("myModal");
+        var btn = document.getElementById("viewMapButton");
+        var span = document.getElementsByClassName("close")[0];
+        var map;
+        var currentLayer = null;
+
+        btn.onclick = function () {
+            modal.style.display = "block";
+            if (!map) {
+                map = L.map('map').setView([20, 0], 2);
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '© OpenStreetMap contributors'
+                }).addTo(map);
+                addLegend();
+            }
+            updateMap('co2');
+        }
+
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Function to determine circle color based on emissions severity
+        function getColor(emissions) {
+            return emissions > 350 ? 'red' :
+                emissions > 330 ? 'orange' :
+                    emissions > 300 ? 'yellow' :
+                        'green';
+        }
+
+        // Function to calculate dynamic radius based on emissions data
+        function getRadius(emissions) {
+            return Math.sqrt(emissions) * 10000;
+        }
+
+        // Function to fetch data from a given JSON file
+        function fetchData(jsonFile) {
+            return fetch(jsonFile)
+                .then(response => response.json())
+                .then(data => data)
+                .catch(error => console.error('Error loading JSON data:', error));
+        }
+
+        // Function to update the map circles based on the selected emissions type and dataset
+        function updateMap(emissionType) {
+    var jsonFile = emissionType === 'co2' ? 'co2_data.json' : 'ch4_data.json';
+
+    fetchData(jsonFile).then(data => {
+        if (currentLayer) {
+            map.removeLayer(currentLayer);
+        }
+
+        var layerGroup = L.layerGroup();
+
+        // Locations array (make sure these are accurate for your emissions data)
+        var locations = [
+            { "lat": 37.7749, "lon": -122.4194 },  // San Francisco
+            { "lat": 34.0522, "lon": -118.2437 },  // Los Angeles
+            { "lat": 40.7128, "lon": -74.0060 },   // New York
+            { "lat": 51.5074, "lon": -0.1278 },    // London
+            { "lat": 35.6895, "lon": 139.6917 },   // Tokyo
+            { "lat": 48.8566, "lon": 2.3522 }      // Paris
+        ];
+
+        data.forEach(function (entry) {
+            var color = getColor(entry.average);
+            var radius = getRadius(entry.average);
+            var locationIndex = data.indexOf(entry) % locations.length; // Wrap around if there are more entries than locations
+
+            L.circle([locations[locationIndex].lat, locations[locationIndex].lon], {
+                color: color,
+                fillColor: color,
+                fillOpacity: 0.5,
+                radius: radius
+            }).bindPopup(`Year: ${entry.year}, Month: ${entry.month}, Emissions: ${entry.average} ppm`)
+                .addTo(layerGroup);
+        });
+
+        layerGroup.addTo(map);
+        currentLayer = layerGroup;
+    });
+}
+
+        // Create a legend and add it to the map
+        function addLegend() {
+            var legend = L.control({ position: 'bottomright' });
+
+            legend.onAdd = function (map) {
+                var div = L.DomUtil.create('div', 'legend');
+                div.innerHTML += '<h4>Emissions (ppm)</h4>';
+                div.innerHTML += '<div><span style="background-color:red; width:12px; height:12px; display:inline-block;"></span> > 350 ppm</div>';
+                div.innerHTML += '<div><span style="background-color:orange; width:12px; height:12px; display:inline-block;"></span> 330 - 350 ppm</div>';
+                div.innerHTML += '<div><span style="background-color:yellow; width:12px; height:12px; display:inline-block;"></span> 300 - 330 ppm</div>';
+                div.innerHTML += '<div><span style="background-color:green; width:12px; height:12px; display:inline-block;"></span> < 300 ppm</div>';
+                return div;
+            };
+
+            legend.addTo(map);
+        }
+
+        document.getElementById('emissionType').addEventListener('change', function () {
+            var selectedType = this.value;
+            updateMap(selectedType);
+        });
     </script>
 </body>
 

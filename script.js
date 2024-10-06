@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const story = urlParams.get('story') || 'story1'; // Default to story1.json (Deforestation)
     const storyFile = `${story}.json`;
     let currentQuestion = 0;
-    let score = 0;
+    let score = 50;
     let totalPossibleScore = 0; // Sum of maximum possible score
     let questions = [];
 
@@ -41,12 +41,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     score += option.score; // Add or subtract score based on choice
                     currentQuestion++;
                     updateSlider();
-
-                    // Check if more questions remain, otherwise end game
-                    if (currentQuestion < questions.length) {
-                        displayQuestion();
+    
+                    // Check if score reaches 20 or 100, or if more questions remain
+                    if (score <= 20 || score >= 100 || currentQuestion >= questions.length) {
+                        endGame(); // End the game
                     } else {
-                        endGame(); // End the game if no questions remain
+                        displayQuestion(); // Display next question
                     }
                 });
                 optionsElement.appendChild(optionButton);
@@ -58,6 +58,10 @@ document.addEventListener("DOMContentLoaded", () => {
     function updateSlider() {
         const scorePercentage = (score / totalPossibleScore) * 100;
         slider.value = scorePercentage; // Update slider position
+    
+            if (score <= 20 || score >= 100) {
+        endGame(); // End the game
+    }
 
         if (scorePercentage >= 50) {
             conditionText.textContent = "Stable";
@@ -71,38 +75,56 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // End the game and display the result
-    function endGame() {
-        const resultElement = document.getElementById("result");
-        const scorePercentage = (score / totalPossibleScore) * 100;
-        const optionsElement = document.getElementById("options");
+    // Define GIF URLs at the beginning of your script
+const earthSavedGif = "earth-saved.gif"; // Replace with your actual URL
+const earthDestroyedGif = "earth-destroyed.gif"; // Replace with your actual URL
 
-        // Clear options and question text
-        document.getElementById("question").textContent = "";
+// Inside the endGame function
+function endGame() {
+    const resultElement = document.getElementById("result");
+    const scorePercentage = (score / totalPossibleScore) * 100;
+    const optionsElement = document.getElementById("options");
 
-        // Hide answer buttons
-        optionsElement.innerHTML = "";
+    // Clear options and question text
+    document.getElementById("question").textContent = "";
+    optionsElement.innerHTML = "";
 
-        // Display the result based on the final score percentage
-        if (scorePercentage >= 50) {
-            resultElement.textContent = `Congratulations! You helped save the Earth with a score of ${scorePercentage.toFixed(2)}%.`;
-        } else if (scorePercentage < 50 && scorePercentage >= 30) {
-            resultElement.textContent = `Warning: Earth's condition is worsening with a score of ${scorePercentage.toFixed(2)}%.`;
-        } else {
-            resultElement.textContent = `Game Over: Earth is destroyed with a score of ${scorePercentage.toFixed(2)}%.`;
-        }
-
-        resultElement.style.display = "block"; // Show result
-        updateSlider(); // Ensure the slider reflects the final score
-
-        // Add Restart Game button
-        const restartButton = document.createElement("button");
-        restartButton.textContent = "Restart Game";
-        restartButton.style.marginTop = "20px"; // Add some spacing
-        restartButton.addEventListener("click", () => {
-            window.location.href = "next_page.html"; // Redirect to next_page.html
-        });
-
-        resultElement.appendChild(restartButton); // Append button to the result
+    // Display the result based on the final score percentage
+    if (scorePercentage >= 50) {
+        resultElement.textContent = `Congratulations! You helped save the Earth & its condition is stable.`;
+        // Show Earth Saved GIF
+        const breakElement = document.createElement("br");
+        const imgElement = document.createElement("img");
+        imgElement.src = earthSavedGif; // Use the saved Earth GIF
+        imgElement.style.width = "100%"; // Adjust width if necessary
+        resultElement.appendChild(breakElement);
+        resultElement.appendChild(imgElement);
+    } else if (scorePercentage < 50 && scorePercentage >= 30) {
+        resultElement.textContent = `Warning: You tried your best but the Earth's condition is worsening.`;
+        // Optionally, add a GIF or image for this condition if you have one
+    } else {
+        resultElement.textContent = `Game Over: Earth is destroyed & you could not save it.`;
+        // Show Earth Destroyed GIF
+        const breakElement = document.createElement("br");
+        const imgElement = document.createElement("img");
+        imgElement.src = earthDestroyedGif; // Use the destroyed Earth GIF
+        imgElement.style.width = "100%"; // Adjust width if necessary
+        resultElement.appendChild(breakElement);
+        resultElement.appendChild(imgElement);
     }
+
+    resultElement.style.display = "block"; // Show result
+    updateSlider(); // Ensure the slider reflects the final score
+
+    // Add Restart Game button
+    const restartButton = document.createElement("button");
+    restartButton.textContent = "Restart Game";
+    restartButton.style.marginTop = "20px"; // Add some spacing
+    restartButton.addEventListener("click", () => {
+        window.location.href = "next_page.html"; // Redirect to next_page.html
+    });
+
+    resultElement.appendChild(restartButton); // Append button to the result
+}
 });
+
